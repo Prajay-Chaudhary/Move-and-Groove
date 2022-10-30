@@ -1,6 +1,10 @@
-<h1>Welcome to the finance tracker app.</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-  <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
 
-
-
+<div class="container pt-2" id="home-container">
+  <div class="jumbotron bg-light text-center text-white">
+    <p class="display-1 pt-4 fw-bold">Move and Groove!</p>
+    <h3> A fitness tracker application where you can create the activity with some simple clicks</h3>
+    <h2 class="my-4 pt-4"></h2>
+    <p>You are never too late to take the first step towards fitness.</p>
+    <%= link_to "Create an activity now!", new_user_registration_path, class: "btn btn-success btn-lg m-3" %>
+  </div>
+</div>

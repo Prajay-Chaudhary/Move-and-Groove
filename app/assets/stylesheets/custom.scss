@@ -20,6 +20,18 @@ a {
     text-decoration: none;
 }
 
+#home-container {
+    margin-top: 50px;
+}
+
+.jumbotron {
+    background-image: asset-url('hero.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 445px;
+}
+
 #page-content {
     flex: 1 0 auto;
     background-color: rgb(209, 218, 217);

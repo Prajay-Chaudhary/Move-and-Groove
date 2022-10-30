@@ -1,8 +1,17 @@
 <div class="container">
-  <% flash.each do |name, msg| %>
-    <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissible fade show" role="alert">
-      <%= msg %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+  <% if user_signed_in? %>
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissible fade show" role="alert">
+        <p class=" container">Hello <%= current_user.full_name if current_user %>!, Welcome to the app. You have successfully signed in. </p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+  <% else %>
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissible fade show" role="alert">
+        <%= msg %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
   <% end %>
 </div>
