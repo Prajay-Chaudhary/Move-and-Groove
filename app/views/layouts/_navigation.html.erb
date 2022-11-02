@@ -4,11 +4,11 @@
     <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <% if user_signed_in? %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <%= link_to "Home", root_path , class: "nav-link" %>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#">Link</a>
@@ -34,20 +34,20 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <%= fa_icon 'user' %> <%= current_user.full_name %>
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu text-center">
                     <li>
-                        <%= link_to"View your profile", class: "dropdown-item" %>
+                        <%= link_to"View your profile", edit_user_registration_path(current_user), class: "dropdown-item btn btn-danger " %>
                     </li>
                     <li>
-                      <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
+                      <%= link_to edit_user_registration_path(current_user), class: "dropdown-item btn btn-info" do %>
                         <%= fa_icon 'edit' %> Edit profile
                       <% end %>
                     </li>
                     <li>
-                      <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+                      <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-warning px-4', data: { turbo_method: :delete } %>
                     </li>
                     <li>
-                      <%= link_to"Delete profile",class: "dropdown-item text-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?. You want to delete your profile?" } %>
+                      <%= button_to "Delete account", registration_path(current_user), class: 'btn btn-danger text-dark my-2', form: { data: { turbo_confirm: "Are you sure that you want to delete your account?. " } }, method: :delete %>
                     </li>
                 </ul>
               </li>
