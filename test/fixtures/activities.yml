@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  activity_name: MyString
+  activity_date: 2022-11-02
+  duration: 2022-11-02 15:55:53
+
+two:
+  activity_name: MyString
+  activity_date: 2022-11-02
+  duration: 2022-11-02 15:55:53
