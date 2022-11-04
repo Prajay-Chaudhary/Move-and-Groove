@@ -28,11 +28,21 @@
                 <a class="nav-link disabled">Username</a>
               </li>
           </ul>
-        
+
           <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <%= fa_icon 'user' %> <%= current_user.full_name %>
+                  <% if current_user.image.attached? %>
+                    <%= image_tag(current_user.image, style: "display:
+                    inline-block;
+                    width:45px;
+                    height:45px;
+                    object-fit:cover;
+                    border-radius:50%;
+                    ") %>
+                <% else %>
+                    <%= fa_icon 'user' %> <%= current_user.full_name %>
+                <% end %>
                 </a>
                 <ul class="dropdown-menu text-center">
                     <li>

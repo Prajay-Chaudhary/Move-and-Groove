@@ -1,17 +1,27 @@
-<div id="<%= dom_id activity %>">
-  <p>
-    <strong>Activity name:</strong>
-    <%= activity.activity_name %>
-  </p>
-
-  <p>
-    <strong>Activity date:</strong>
-    <%= activity.activity_date %>
-  </p>
-
-  <p>
-    <strong>Duration:</strong>
-    <%= activity.duration %>
-  </p>
-
-</div>
+<div class="container">
+    <% @activities.each do |activity| %>
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header fst-italic">
+          <% if activity.user %> 
+            by <%= link_to activity.user.full_name, users_path(activity.user) %>
+          <% end %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to activity.activity_name, activity_path(activity), class: "text-success" %></h5>
+            <%= link_to"View", activity_path(activity), class: "btn btn-outline-success" %>
+            <% if user_signed_in? && activity.user == current_user %>
+              <%= link_to"Edit", edit_activity_path(activitye), class: "btn btn-outline-info" %>
+              <%= link_to("Delete", activity, class: "btn btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" })%> 
+            <% end %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(activity.created_at) %> ago,
+                   edited <%= time_ago_in_words(activity.updated_at) %> ago
+            </small> 
+          </div>
+        </div>
+      </div>
+    </div>
+<%end%>
