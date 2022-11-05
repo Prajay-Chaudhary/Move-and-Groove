@@ -1,14 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Activities</h1>
-
-<div id="activities">
-  <% @activities.each do |activity| %>
-    <%= render activity %>
-    <p>
-      <%= link_to "Show this activity", activity %>
-    </p>
-  <% end %>
+<h1 class="text-center mt-4">Listing All Activities</h1>
+<div class="flickr_pagination d-flex justify-content-center">
+  <%= will_paginate @activities, :container => false %>
 </div>
-
-<%= link_to "New activity", new_activity_path %>
+<%= render 'activity'%>
+<div class="flickr_pagination d-flex justify-content-center mb-4">
+  <%= will_paginate @activities, :container => false %>
+</div>

@@ -1,13 +1,13 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
   #before_action :require_user, except: [:show, :index]
-  #before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def show
   end
 
   def index
-    @activities = Activity.all
+    @activities = Activity.reorder("created_at DESC").page(params[:page]).per_page(4)
 
   end
 
