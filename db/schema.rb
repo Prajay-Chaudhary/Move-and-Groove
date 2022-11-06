@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_04_211549) do
   create_table "activities", force: :cascade do |t|
     t.string "activity_name"
     t.date "activity_date"
-    t.time "duration"
+    t.string "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

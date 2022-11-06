@@ -1,6 +1,6 @@
 <h2 class="text-center mt-4"><%= @activity.activity_name %></h2>
   <div class="container">
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
       <div class="col-8 mt-4">
         <div class="card text-center shadow mb-5 bg-white rounded">
           <div class="card-header fst-italic">
@@ -20,7 +20,9 @@
           </div>
           <div class="card-body">
             <div class="card-text text-start">
-            	<%= current_user.full_name %>
+              <strong> Activity Name:</strong> <p><%= @activity.activity_name %></p>
+              <strong> Activity Date:</strong> <p><%= @activity.activity_date %></p>
+            	<strong> Activity Duration:</strong> <p><%= @activity.duration %></p>
 						</div>
             <% if user_signed_in? && @activity.user == current_user %>
               <%= link_to"Edit", edit_activity_path(@activity), class: "btn btn-outline-info" %>

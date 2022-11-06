@@ -3,7 +3,7 @@ class CreateActivities < ActiveRecord::Migration[7.0]
     create_table :activities do |t|
       t.string :activity_name
       t.date :activity_date
-      t.time :duration
+      t.string :duration
 
       t.timestamps
     end

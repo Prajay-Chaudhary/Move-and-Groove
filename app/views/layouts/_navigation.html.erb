@@ -18,8 +18,8 @@
                 Activities
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Create activity</a></li>
-                <li><a class="dropdown-item" href="#">All activities</a></li>
+                <li><%= link_to "Create activity", new_activity_path, class: "dropdown-item" %></li>
+                <li><%= link_to "All activities", activities_path, class: "dropdown-item" %></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
@@ -64,9 +64,6 @@
         </ul>
         <% else %>
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <%= link_to 'All activities', new_user_session_path, class: "nav-link" %>
-            </li>
             <li class="nav-item">
               <%= link_to 'Log in', new_user_session_path, class: "nav-link" %>
             </li>

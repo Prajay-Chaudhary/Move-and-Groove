@@ -6,13 +6,20 @@
         <div class="form-group row m-3">
           <%= form.label :activity_name, class: "col-2 col-form-label text-light" %>
           <div class="col-10">
-            <%= form.text_field :activity_name, class: "form-control shadow-rounded", placeholder: "Enter activity name" %>
+            <%= form.select :activity_name, 
+              options_for_select(["Running", "Walking", "Swimming",
+                                "Arc Trainer", "Mountain Biking",
+                                  "Skating", "Wheelchair",
+                                  "Boxing", "Core Strength",
+                                  "Circuit Training"]), {},
+                                  { class: "form-control shadow-rounded" }
+            %>
           </div>
         </div>
         <div class="form-group row m-3">
           <%= form.label :activity_date, class: "col-2 col-form-label text-light" %>
           <div class="col-10">
-            <%= form.date_field :activity_date, rows: 10, class: "form-control shadow-rounded", placeholder: "Select the activity date" %>
+            <%= form.date_field :activity_date, rows: 5, class: "form-control shadow-rounded", placeholder: "Select an activity date" %>
           </div>
         </div>
 
