@@ -21,7 +21,7 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
-    @activity.user = User.first
+    @activity.user = current_user
 
     if @activity.save
       flash[:notice] = "Activity was created successfully."
@@ -55,12 +55,12 @@ class ActivitiesController < ApplicationController
     params.require(:activity).permit(:activity_name, :activity_date, :duration)
   end
 
-  #def require_same_user
-    #if current_user != @activity.user
-     # flash[:alert] = "You can only delete your own Activity"
-      #redirect_to @activity
-    #end
-  #end
+  def require_same_user
+    if current_user != @activity.user
+     flash[:alert] = "You can only delete your own Activity"
+      redirect_to @activity
+    end
+  end
 
 
 end

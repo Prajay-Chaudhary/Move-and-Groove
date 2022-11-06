@@ -1,10 +1,18 @@
 <footer class="footer-align text-white">
   <div class="container-fluid text-center">
     <div class="row p-4">
-      <div class="col">Home</div>
-      <div class="col">Activities</div>
-      <div class="col">Link</div>
-      <div class="col">Users</div>
+      <div class="col">
+        <p><%= link_to "Home", root_path , class: "nav-link" %></p>
+      </div>
+      <% if user_signed_in? %>
+        <div class="col">
+          <p><%= link_to "All activities", activities_path , class: "nav-link" %></p>
+        </div>
+        <div class="col">
+          <p><%= link_to "All users", users_path , class: "nav-link" %></p>
+        </div>
+      <% end %>
+      <div class="col"><p>Users</p></div>
      <small class="p-2">Copyright &copy; <%= link_to "moveandgroove", "https://moveandgroove.com", class: "text-white text-decoration-none" %></small>
     </div>
   </div>

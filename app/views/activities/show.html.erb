@@ -14,15 +14,13 @@
                   border-radius:50%;
                   ") 
                 %>
-              <% else %>
-               <%= current_user.full_name %>
               <% end %>
           </div>
           <div class="card-body">
             <div class="card-text text-start">
               <strong> Activity Name:</strong> <p><%= @activity.activity_name %></p>
               <strong> Activity Date:</strong> <p><%= @activity.activity_date %></p>
-            	<strong> Activity Duration:</strong> <p><%= @activity.duration %></p>
+            	<strong> Activity Duration:</strong> <p><%= @activity.duration.strftime("%k hour %M minutes and %S  seconds") %></p>
 						</div>
             <% if user_signed_in? && @activity.user == current_user %>
               <%= link_to"Edit", edit_activity_path(@activity), class: "btn btn-outline-info" %>
