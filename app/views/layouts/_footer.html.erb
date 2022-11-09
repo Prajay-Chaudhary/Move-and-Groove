@@ -6,10 +6,10 @@
       </div>
       <% if user_signed_in? %>
         <div class="col">
-          <p><%= link_to "All activities", activities_path , class: "nav-link" %></p>
+          <p><%= link_to "All activities", root_path , class: "nav-link" %></p>
         </div>
         <div class="col">
-          <p><%= link_to "All users", users_path , class: "nav-link" %></p>
+          <p><%= link_to "All users", root_path , class: "nav-link" %></p>
         </div>
       <% end %>
       <div class="col"><p>Users</p></div>

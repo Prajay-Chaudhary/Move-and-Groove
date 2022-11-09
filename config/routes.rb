@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations:
   'devise_controllers/registrations' }
   root 'welcome#index'
-    devise_scope :user do
-    # Redirests signing out users back to sign-in
+  devise_scope :user do
+    # Redirests signing out users back to root
     get "users", to: "devise/sessions#new"
   end
-end
-
+ end
