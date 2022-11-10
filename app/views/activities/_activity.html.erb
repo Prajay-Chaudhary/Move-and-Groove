@@ -19,8 +19,8 @@
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= link_to activity.activity_name, activity_path(activity), class: "text-success" %></h5>
-            <%= link_to"View", activity_path(activity), class: "btn btn-outline-success" %>
             <% if user_signed_in? && activity.user == current_user %>
+            <%= link_to"View", activity_path(activity), class: "btn btn-outline-success" %>
               <%= link_to"Edit", edit_activity_path(activity), class: "btn btn-outline-info" %>
               <%= link_to("Delete", activity, class: "btn btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" })%> 
             <% end %>

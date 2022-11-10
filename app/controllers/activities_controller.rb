@@ -7,7 +7,7 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.reorder("created_at DESC").page(params[:page]).per_page(4)
+    @activities = Activity.where(user: current_user).reorder("created_at DESC").page(params[:page]).per_page(10)
   end
 
   def new

@@ -1,8 +1,36 @@
-<h1 class="text-center mt-4">Listing All Activities</h1>
-<div class="flickr_pagination d-flex justify-content-center">
-  <%= will_paginate @activities, :container => false %>
+<div class="container text-center">
+  <div class="page-header my-4">
+    <h1 class="text-decoration-underline fw-bolder">Activities</h1>
+    <h4><span class="label label-primary fst-italic mb-5">Listing <%= current_user.full_name %>'s all Activities </span></h4>
+  </div>
 </div>
-<%= render 'activity'%>
+<div class="container text-center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-center">Activity name</th>
+        <th class="text-center">Activity date</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @activities.each do |activity| %>
+        <tr>
+          <td><%= activity.activity_name %></td>
+          <td><%= activity.activity_date%></td>
+          <td class="text-center"> 
+            <% if user_signed_in? && activity.user == current_user %>
+              <%= link_to"View", activity_path(activity), class: "btn btn-outline-success" %>
+              <%= link_to"Edit", edit_activity_path(activity), class: "btn btn-outline-info" %>
+              <%= link_to("Delete", activity, class: "btn btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" })%>
+            <% end %> 
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <div class="flickr_pagination d-flex justify-content-center mb-4">
   <%= will_paginate @activities, :container => false %>
 </div>
+
