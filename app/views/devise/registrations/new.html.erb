@@ -1,42 +1,80 @@
-<h1 class="text-center m-5"><%= t('.sign_up') %></h1>
-<div class="row justify-content-center">
-  <div class="col-7 m-2">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/errors", resource: resource %>
+<div class="container">
+  <section class="background-image-sign-up overflow-hidden m-5">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+          <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+            <p class="my-2 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+              <%= t('.sign_up_now!') %> </p><br />
+              <h1 style="color: hsl(218, 81%, 75%)">Create a Free Account and become a healthier you</h1>
+            </h1>
+            <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+            Activity tracking apps are a popular way for health-minded individuals
+              to measure daily movement and estimate energy expenditure.
+              Tracking, in its many forms, has been proven to improve health outcomes.
+            </p>
+          </div>
 
-      <div class="form-group">
-        <%= f.label :email, class: 'm-2' %>
-        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control mb-2 ' %>
-      </div>
-      <div class="row g-3">
-        <div class="form-group col-md-6">
-          <%= f.label :first_name, class: 'm-2' %>
-          <%= f.text_field :first_name, autofocus: true, autocomplete: 'first name', class: 'form-control mb-2' %>
+          <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/errors", resource: resource %>
+              <div class="card bg-glass">
+                <div class="card-body px-4 py-5 px-md-5">
+                  <form>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <%= f.text_field :first_name, class: 'form-control', id:"form3Example1", required: true %>
+                          <label class="form-label" for="form3Example1">First name</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <%= f.text_field :last_name, class: 'form-control', id:"form3Example2", required: true %>
+                          <label class="form-label" for="form3Example2">Last name</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                      <%= f.email_field :email, class: 'form-control', id: "form3Example3" %>
+                      <label class="form-label" for="form3Example3">Email address</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                      <%= f.password_field :password, class: 'form-control', id:"form3Example4" %>
+                      <label class="form-label" for="form3Example4">Password</label>
+                      <% if @minimum_password_length %>
+                        <small class="text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
+                      <% end %>
+                    </div>
+                    <!-- Password conformation input -->
+                    <div class="form-outline mb-4">
+                      <%= f.password_field :password_confirmation, id:"form3Example4" , class: 'form-control' %>
+                      <label class="form-label" for="form3Example4">Password conformation</label>
+                    </div>          
+
+                    <!-- Checkbox -->
+                    <div class="form-check d-flex justify-content-center mb-4">
+                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                      <label class="form-check-label" for="form2Example33">
+                        Subscribe to our newsletter
+                      </label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <%= f.submit t('.sign_up'), class: 'btn btn-outline-success text-dark btn-block mb-4' %>
+
+                    <%= render 'devise/shared/links' %>
+                  </form>
+                <% end %>
+
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-group col-md-6">
-          <%= f.label :last_name, class: 'm-2' %>
-          <%= f.text_field :last_name, autofocus: true, autocomplete: 'last name', class: 'form-control mb-2' %>
-        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :password, class: 'm-2' %>
-        <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control mb-2' %>
-
-        <% if @minimum_password_length %>
-          <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
-        <% end %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password_confirmation, class: 'm-2' %>
-        <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control mb-2' %>
-      </div>
-
-      <div class="form-group text-center">
-        <%= f.submit t('.sign_up'), class: 'btn btn-outline-success text-dark m-3' %>
-      </div>
-    <% end %>
-
-    <%= render 'devise/shared/links' %>
-  </div>
+  </section>
 </div>
