@@ -1,68 +1,77 @@
-<div class="text-center m-3">
-  <h1><%= t('.title', resource: resource_name.to_s.humanize) %></h1>
-</div>
-<div class="row justify-content-center m-2">
-  <div class="col-7 m-2">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/errors", resource: resource %>
-      <div class="row text-center justify-content-center">
-        <% if current_user.image.attached? %>
-          <%= image_tag(current_user.image, style: "display:
-          inline-block;
-          width:170px;
-          height:150px;
-          object-fit:cover;
-          border-radius:50%;
-          ") %>
-        <% else %>
-          <%= current_user.full_name %>
-        <% end %>
-      </div>
-      <div class="form-group my-2">
-          <%= f.label :Update_image, class: "mb-2" %><br>
-          <%= f.file_field :image, class: "mb-2" %>
+<div class="container my-5">
+  <div class="row bg-success">
+    <div class="bg-success">
+      <div class=" m-3">
+        <h1 class= "text-center"><%= t('.title', resource: resource_name.to_s.humanize) %></h1>
+        <div class="row justify-content-center m-2">
+          <div class="col-7 m-2">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/errors", resource: resource %>
+              <div class="row text-center justify-content-center">
+                <% if current_user.image.attached? %>
+                  <%= image_tag(current_user.image, style: "display:
+                  inline-block;
+                  width:170px;
+                  height:150px;
+                  object-fit:cover;
+                  border-radius:50%;
+                  ") %>
+                <% else %>
+                  <%= current_user.full_name %>
+                <% end %>
+                <p class="display-4"> <%= current_user.full_name %> </p>
+              </div>
+              <div class="form-group my-2">
+                <%= f.label :Update_image, class: "mb-2" %><br>
+                <%= f.file_field :image, class: "mb-2" %>
+                </div>
+              <div class="form-group">
+                <%= f.label :email, class: 'm-1' %>
+                <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control m-1' %>
+              </div>
+              <div class="row g-3">
+                <div class="form-group col-md-6">
+                  <%= f.label :first_name, class: 'm-1' %>
+                  <%= f.text_field :first_name, autofocus: true, autocomplete: 'first name', class: 'form-control m-1' %>
+                </div>
+                <div class="form-group col-md-6">
+                  <%= f.label :last_name, class: 'm-1' %>
+                  <%= f.text_field :last_name, autofocus: true, autocomplete: 'last name', class: 'form-control m-1' %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :password, class: 'm-1' %>
+                <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control m-1' %>
+
+                <small class="form-text text-info mx-1"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password_confirmation, class: 'm-1' %>
+                <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control m-1'  %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :current_password, class: 'm-1' %>
+                <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control m-1' %>
+
+                <small class="form-text text-info m-1"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
+              </div>
+
+              <div class="form-group mt-2">
+                <%= f.submit t('.update'), class: 'btn btn-warning text-dark' %>
+              </div>
+            <% end %>
+
+            <p>
+            <%= button_to "Delete my account", registration_path(current_user), class: 'btn btn-danger text-white', form: { data: { turbo_confirm: "Are you sure that you want to delete your account?. " } }, method: :delete %></p>
+
+            <%= link_to t('.back'),activities_path(current_user), class: "text-dark" %>
+          </div>
         </div>
-      <div class="form-group">
-        <%= f.label :email, class: 'm-1' %>
-        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control m-1' %>
       </div>
-      <div class="row g-3">
-        <div class="form-group col-md-6">
-          <%= f.label :first_name, class: 'm-1' %>
-          <%= f.text_field :first_name, autofocus: true, autocomplete: 'first name', class: 'form-control m-1' %>
-        </div>
-        <div class="form-group col-md-6">
-          <%= f.label :last_name, class: 'm-1' %>
-          <%= f.text_field :last_name, autofocus: true, autocomplete: 'last name', class: 'form-control m-1' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :password, class: 'm-1' %>
-        <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control m-1' %>
-
-        <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password_confirmation, class: 'm-1' %>
-        <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control m-1'  %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :current_password, class: 'm-1' %>
-        <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control m-1' %>
-
-        <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
-      </div>
-
-      <div class="form-group">
-        <%= f.submit t('.update'), class: 'btn btn-outline-success text-dark' %>
-      </div>
-    <% end %>
-
-    <p>
-     <%= button_to "Delete my account", registration_path(current_user), class: 'btn btn-danger text-white', form: { data: { turbo_confirm: "Are you sure that you want to delete your account?. " } }, method: :delete %></p>
-
-    <%= link_to t('.back'), :back %>
+    </div>
   </div>
 </div>
+
+

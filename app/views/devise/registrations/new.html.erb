@@ -1,9 +1,9 @@
 <div class="container">
-  <section class="background-image-sign-up overflow-hidden m-5">
-    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+  <section class="background-image-sign-up overflow-hidden m-lg-5 m-sm-3">
+    <div class="container px-lg-4 py-lg-5 py-sm-3 px-sm-2 text-lg-start text-center my-md-5 my-sm-2">
         <div class="row gx-lg-5 align-items-center mb-5">
-          <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-            <p class="my-2 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+          <div class="col-lg-6 mb-sm-2 mb-md-1 mb-lg-0" style="z-index: 10">
+            <p class="my-lg-2 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
               <%= t('.sign_up_now!') %> </p><br />
               <h1 style="color: hsl(218, 81%, 75%)">Create a Free Account and become a healthier you</h1>
             </h1>
@@ -14,21 +14,21 @@
             </p>
           </div>
 
-          <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+          <div class="col-lg-6 mb-md-5 mb-sm-2 mb-lg-0 position-relative">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <%= render "devise/shared/errors", resource: resource %>
               <div class="card bg-glass">
-                <div class="card-body px-4 py-5 px-md-5">
+                <div class="card-body px-lg-3 px-sm-2 py-md-5 py-sm-2">
                   <form>
                     <!-- 2 column grid layout with text inputs for the first and last names -->
                     <div class="row">
-                      <div class="col-md-6 mb-4">
+                      <div class="col-md-6 mb-lg-4 mb-sm-2">
                         <div class="form-outline">
                           <%= f.text_field :first_name, class: 'form-control', id:"form3Example1", required: true %>
                           <label class="form-label" for="form3Example1">First name</label>
                         </div>
                       </div>
-                      <div class="col-md-6 mb-4">
+                      <div class="col-md-6 mb-lg-4 mb-sm-2">
                         <div class="form-outline">
                           <%= f.text_field :last_name, class: 'form-control', id:"form3Example2", required: true %>
                           <label class="form-label" for="form3Example2">Last name</label>
@@ -37,13 +37,13 @@
                     </div>
 
                     <!-- Email input -->
-                    <div class="form-outline mb-4">
+                    <div class="form-outline mb-sm-2 mb-lg-4">
                       <%= f.email_field :email, class: 'form-control', id: "form3Example3" %>
                       <label class="form-label" for="form3Example3">Email address</label>
                     </div>
 
                     <!-- Password input -->
-                    <div class="form-outline mb-4">
+                    <div class="form-outline mb-sm-2 mb-lg-4">
                       <%= f.password_field :password, class: 'form-control', id:"form3Example4" %>
                       <label class="form-label" for="form3Example4">Password</label>
                       <% if @minimum_password_length %>
@@ -51,13 +51,13 @@
                       <% end %>
                     </div>
                     <!-- Password conformation input -->
-                    <div class="form-outline mb-4">
+                    <div class="form-outline mb-sm-2 mb-lg-4">
                       <%= f.password_field :password_confirmation, id:"form3Example4" , class: 'form-control' %>
                       <label class="form-label" for="form3Example4">Password conformation</label>
                     </div>          
 
                     <!-- Checkbox -->
-                    <div class="form-check d-flex justify-content-center mb-4">
+                    <div class="form-check d-flex justify-content-center mb-sm-2 mb-lg-4">
                       <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
                       <label class="form-check-label" for="form2Example33">
                         Subscribe to our newsletter
@@ -65,7 +65,7 @@
                     </div>
 
                     <!-- Submit button -->
-                    <%= f.submit t('.sign_up'), class: 'btn btn-outline-success text-dark btn-block mb-4' %>
+                    <%= f.submit t('.sign_up'), class: 'btn btn-outline-success text-dark btn-block mb-sm-2 mb-lg-4' %>
 
                     <%= render 'devise/shared/links' %>
                   </form>

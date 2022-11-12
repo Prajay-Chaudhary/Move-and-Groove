@@ -1,62 +1,70 @@
 <div class="container">
-  <section class="background-image-log-in overflow-hidden m-5">
-    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+  <section class="background-image-log-in overflow-hidden m-lg-5 m-sm-3">
+    <div class="container px-lg-4 py-lg-5 py-sm-2 px-sm-2 text-lg-start text-center my-md-5 my-sm-2">
         <div class="row gx-lg-5 align-items-center mb-5">
-          <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-            <p class="my-2 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+          <div class="col-lg-6 mb-sm-2 mb-md-1 mb-lg-0" style="z-index: 10">
+            <p class="my-lg-2 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
               <%= t('.sign_in') %> </p><br />
               <h1 style="color: hsl(218, 81%, 75%)">Login now! to create your activity</h1>
             </h1>
-            <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-            Activity tracking apps are a popular way for health-minded individuals
-              to measure daily movement and estimate energy expenditure.
-              Tracking, in its many forms, has been proven to improve health outcomes.
-            </p>
+            <strong class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+               <h4> Opting for an activity sensor makes it easier to
+                  acquire a healthy mind in a healthy body!</h4>
+                   Stress is the most prevalent illness of the 21st century.
+                 According to a survey by the newspaper "Ladepeche", 9 out of 10 French people suffer from it.
+                 Practicing physical activity releases endorphin, an anti-stress hormone, also called the hormone of happiness.
+                  Plus, exercise is proven to reduce pain sensitivity, which is good news for chronic pain sufferers!
+              
+            </strong>
           </div>
+          <div class="col-lg-6 mb-md-5 mb-sm-2 mb-lg-0 position-relative">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= render "devise/shared/errors", resource: resource %>
+                <div class="card bg-glass">
+                <div class="card-body px-lg-3 px-sm-2 py-md-5 py-sm-2">
+                    <form>
+                      <!-- 2 column grid layout with text inputs for the first and last names -->
+                      <div class="row">
 
-          <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <%= render "devise/shared/errors", resource: resource %>
-              <div class="card bg-glass">
-                <div class="card-body px-4 py-5 px-md-5">
-                  <form>
-                    <!-- 2 column grid layout with text inputs for the first and last names -->
-                    <div class="row">
+                        <!-- Email input -->
+                        <div class="form-outline mb-lg-4 mb-sm-2">
+                          <%= f.email_field :email, class: 'form-control', id: "form3Example3" %>
+                          <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
 
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                      <%= f.email_field :email, class: 'form-control', id: "form3Example3" %>
-                      <label class="form-label" for="form3Example3">Email address</label>
-                    </div>
+                        <!-- Password input -->
+                        <div class="form-outline mb-lg-4 mb-sm-2">
+                          <%= f.password_field :password, class: 'form-control', id:"form3Example4" %>
+                          <label class="form-label" for="form3Example4">Password</label>
+                        </div>
 
-                    <!-- Password input -->
-                    <div class="form-outline">
-                      <%= f.password_field :password, class: 'form-control', id:"form3Example4" %>
-                      <label class="form-label" for="form3Example4">Password</label>
-                    </div>
+                        <!-- password remember -->
+                        <% if devise_mapping.rememberable? %>
+                          <div class="form-check m-2">
+                            <%= f.check_box :remember_me, class: 'form-check-input' %>
+                            <%= f.label :remember_me, class: 'form-check-label' do %>
+                              <%= resource.class.human_attribute_name('remember_me') %> 
+                            <% end %>
+                          </div>
+                        <% end %>        
+                        <!-- Submit button -->
+                        <%= f.submit t('.sign_in'), class: 'btn btn-outline-success text-dark btn-block my-4' %>
 
-                    <!-- password remember -->
-                    <% if devise_mapping.rememberable? %>
-                      <div class="form-check m-2">
-                        <%= f.check_box :remember_me, class: 'form-check-input' %>
-                        <%= f.label :remember_me, class: 'form-check-label' do %>
-                          <%= resource.class.human_attribute_name('remember_me') %>
-                        <% end %>
+                        <%= render 'devise/shared/links' %>
                       </div>
-                    <% end %>         
-
-                    <!-- Submit button -->
-                    <%= f.submit t('.sign_in'), class: 'btn btn-outline-success text-dark btn-block my-4' %>
-
-                    <%= render 'devise/shared/links' %>
-                  </form>
-                <% end %>
-
-              </div>
-            </div>
+                    </form>
+                  </div>
+                </div>
+            <% end %>
           </div>
-        </div>
+          
+
+              
+            
+          
+        
       </div>
+    </div>
   </section>
 </div>
 
