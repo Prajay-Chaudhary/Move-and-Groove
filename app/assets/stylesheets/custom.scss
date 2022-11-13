@@ -39,11 +39,20 @@ a {
 }
 
 body {
-    min-height: 100vh;
+    min-height: 150vh !important;
     display: flex;
     flex-direction: column;
 }
 
 .footer-color {
     background-color: rgb(18, 56, 18) !important;
+}
+
+.horizontall-scroll {
+    overflow-x: hidden;
+    /* Hide scrollbars */
+}
+
+#profile-dropdown {
+    left: -35px;
 }

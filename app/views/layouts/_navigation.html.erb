@@ -49,7 +49,7 @@
                     <%= fa_icon 'user' %> <%= current_user.full_name %>
                 <% end %>
                 </a>
-                <ul class="dropdown-menu text-center">
+                <ul class="dropdown-menu text-center" id="profile-dropdown">
                     <li>
                         <%= link_to"View your profile", edit_user_registration_path(current_user), class: "dropdown-item btn btn-danger " %>
                     </li>
