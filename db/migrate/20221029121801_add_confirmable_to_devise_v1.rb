@@ -1,5 +1,5 @@
 class AddConfirmableToDeviseV1 < ActiveRecord::Migration[7.0]
-  def change
+  #def change
     #change_table(:users) do |t|
        # Confirmable
        #t.string   :confirmation_token
