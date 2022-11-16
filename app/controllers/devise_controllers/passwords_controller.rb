@@ -2,7 +2,7 @@
 
 class DeviseControllers::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
-[  # def new
+  # def new
   #   super
   # end]
 
